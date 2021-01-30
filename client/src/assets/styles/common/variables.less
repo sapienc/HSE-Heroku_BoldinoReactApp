@@ -1,0 +1,51 @@
+// ========================= [ GENERAL ] =========================
+@fixed_size: 1; // 1 - фиксированный и в то же время динамичный размер книги; 0 - резиновый на процентах
+
+.set_width_height(@w, @h) {
+  width: @w;
+  height: @h;
+}
+
+.set_bg_contain(@p) {
+  background: url('/src/assets/images/@{p}') no-repeat center center;
+  background-size: contain;
+}
+
+.set_book_size(@w: 650px; @h: (@w / 1.35); @f: @fixed_size;) { // Установить размер книги, в зависимости от @fixed_size и других факторов
+  & when (@f = 1) {
+    padding: 1% 1% !important; // Подходят также: 4% 1% ; 2% 1% (только надо еще height у content поменять в случае чего)
+    .set_width_height(@w, @h);
+  }
+  & when (@f = 0) {
+    @w: 100%;
+    @h: 100%;
+    @media screen and (max-width: 725px) { padding: 4% 8% !important; }
+    @media screen and (max-width: 680px) { padding: 4% 4% !important; }
+    @media screen and (min-width: 725px) { padding: 4% 8% !important; }
+    .set_width_height(@w, @h);
+  }
+}
+
+// ========================= [ COLOURS ] =========================
+@header_color: #714f36; //#01508C
+@header_color_shade: #33271d; //#01467A
+@header_color_shade_focus: #815B3F; //#013A66
+
+@aside_color: #39291C; //#013B67
+@aside_item_hover_color: #403024;//#01467B;
+
+@logo_color: #FF661B;
+@logo_color_darken: #E45710;
+@text_color: #353535;
+
+@table_shadow_color: rgba(225,225,225, 1);
+
+@input_border_color: rgba(225,225,225, 1);
+@input_border_active_color: rgba(190,190,190, 1);
+
+@header_height: 60px;
+@aside_width: 20%;
+@content_width: 100%;
+@content_left_padding: @aside_width + 2%;
+
+@border_radius_commnon: 5px;

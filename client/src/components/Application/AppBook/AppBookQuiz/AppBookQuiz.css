@@ -1,0 +1,311 @@
+.content .decors {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.content .decors .Ink,
+.content .decors .Pushkin {
+  position: absolute;
+}
+.content .decors .Ink {
+  width: 140px;
+  height: 205px;
+  bottom: 55px;
+  right: 8px;
+  background: url(/src/assets/images/decor/Ink.png) no-repeat center center;
+  background-size: contain;
+}
+.content .decors .Pushkin {
+  width: 65px;
+  height: 90px;
+  top: 15px;
+  left: 20px;
+  background: url(/src/assets/images/famous/Pushkin.png) no-repeat center center;
+  background-size: contain;
+}
+.tape_bg {
+  position: absolute;
+  width: 75%;
+  height: 250px;
+  top: -151px;
+  background: url(/src/assets/images/decor/tape_bg.png) center center no-repeat;
+  background-size: contain;
+  z-index: -1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: 4px solid blue;
+}
+.tape {
+  position: absolute;
+  width: 100%;
+  height: 110%;
+  top: -114px;
+  left: 0;
+  background: url('/src/assets/images/decor/tape_bg_main.png') no-repeat center center;
+  background-size: contain;
+  z-index: 100;
+  outline: 2px solid red;
+}
+.tape.mini {
+  width: 65%;
+  height: 40%;
+  top: -124px;
+  left: 115px;
+  background: url('/src/assets/images/decor/tape_bg_main_mini.png') no-repeat center center;
+  background-size: contain;
+}
+.tape.mini .tape_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 85% !important;
+  height: 80% ;
+  padding: 5% 0 0 0;
+}
+.tape.mini .tape_action_block {
+  display: none;
+}
+.tape.mini .tape_info_block {
+  margin: 2% 0;
+}
+.tape.mini .image {
+  width: 15%;
+  padding-top: 10px;
+}
+.tape.mini .socials {
+  margin: 2% 0 0 0;
+}
+.tape.mini .socials .social {
+  height: 50px;
+  margin: 0 15px;
+}
+.tape .tape_content {
+  position: relative;
+  width: 45%;
+  margin: 0 auto;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  padding-top: 10%;
+  padding-bottom: 2%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.tape .tape_heading_text {
+  margin: 0 auto;
+  color: white;
+  font-size: 32px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.tape .tape_info_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 5px;
+  margin: 5% 0;
+  width: 98%;
+  height: 75%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  outline: 1px solid pink;
+}
+.tape .socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 120%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.tape .socials .social {
+  max-width: 110px;
+  height: 80px;
+  padding: 0;
+  border: none;
+  background: none;
+  margin: 0 auto;
+  border-radius: 100px;
+  -webkit-box-shadow: 0px 4px 0px #6B4325;
+          box-shadow: 0px 4px 0px #6B4325;
+  cursor: pointer;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+.tape .socials .social img {
+  height: 100%;
+}
+.tape .socials .social:active img {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  margin-top: 4px;
+}
+.tape .socials .social:hover img {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  padding-top: 2px;
+}
+.tape .tape_action_block {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 15%;
+}
+.tape .tape_action_block .action_button {
+  width: 170px;
+  height: 50px;
+  padding: 10px 5px;
+  margin: 0 5px;
+  font-size: 16px;
+}
+.tape .tape_action_block .action_button:active,
+.tape .tape_action_block .action_button:focus {
+  margin-bottom: 2px;
+}
+.tape ~ .page.left {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.tape ~ .page.right {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 20px;
+}
+.tape ~ .page.left,
+.tape ~ .page.right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.tape ~ .page .page_action_block {
+  max-width: 100%;
+  min-height: 180px;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: inherit;
+}
+.tape ~ .page.left .page_action_block {
+  padding: 0 5% 0 5%;
+}
+.tape ~ .page.right .page_action_block {
+  padding: 0 5% 0 5%;
+}
+.tape ~ .page .action_button {
+  max-width: 100%;
+  min-height: 30%;
+  margin: 0 auto;
+}
+.tape ~ .page .action_button .button_holder {
+  background: url('/src/assets/images/decor/btn_holder_diagonalDown.png') no-repeat center center;
+  background-size: contain;
+}
+.tape ~ .page .action_button .button_holder.top {
+  top: -15px;
+}
+.tape ~ .page .action_button .button_holder.top.left {
+  background: url('/src/assets/images/decor/btn_holder_diagonalUp.png') no-repeat center center;
+  background-size: contain;
+}
+.tape ~ .page .action_button .button_holder.bottom {
+  bottom: -27px;
+}
+.tape ~ .page .action_button .button_holder.bottom.right {
+  background: url('/src/assets/images/decor/btn_holder_diagonalUp.png') no-repeat center center;
+  background-size: contain;
+}
+.tape ~ .page .action_button .button_holder.right {
+  right: -30px;
+}
+.tape ~ .page .action_button .button_holder.left {
+  left: -55px !important;
+}
+.tape_info {
+  overflow: auto;
+  white-space: pre-line;
+}
+.tape_info_block {
+  overflow: auto;
+}
+.tape_info_block .image {
+  width: 100px !important;
+  max-width: 100px !important;
+  margin: 0 auto;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 4px 5px #6B4325;
+          box-shadow: 0px 4px 5px #6B4325;
+  cursor: pointer;
+}
+.action_button.expand {
+  position: absolute;
+  bottom: -30px;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 10px 10px !important;
+  text-align: center;
+  margin: 0 auto !important;
+}
+.action_button.expand img {
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  border-radius: 50px;
+  padding: 4px 0 0 .5px;
+}
+.action_button.expand:active,
+.action_button.expand:focus {
+  margin-bottom: -2px !important;
+  margin-top: 2px !important;
+}
+.btn_link {
+  display: contents;
+}
+.testModalWindowZone {
+  position: absolute !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  top: 0;
+  text-align: center;
+}
+.testModalWindowZone .modalIMGBlock {
+  display: block;
+  margin: 0 auto;
+}
+.testModalWindowZone .modalIMGBlock .modalIMG {
+  border-radius: 4px;
+}

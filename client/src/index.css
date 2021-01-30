@@ -1,0 +1,9 @@
+.page_action_block .action_button {
+  max-width: 90% !important;
+}
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background: url(/src/assets/images/main_bg.jpg) no-repeat;
+  background-size: cover;
+}

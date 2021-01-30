@@ -1,0 +1,287 @@
+* {
+  outline: none !important;
+}
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 5% 1% 5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: 1px solid red;
+}
+.Heading {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-bottom: -8%;
+  outline: 1px solid yellow;
+}
+.Heading_noBG,
+.Heading_background {
+  width: 100%;
+  padding: 10% 0;
+}
+.Heading_background {
+  background: url(/src/assets/images/BBtext.png) center center no-repeat;
+  background-size: contain;
+}
+.Book {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  outline: 1px solid black;
+}
+.Book_wrap {
+  position: relative;
+  padding: 1% 1% !important;
+  width: 650px;
+  height: 481.48148148px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(/src/assets/images/book.png) center center no-repeat;
+  background-size: contain;
+  outline: 1px solid yellowgreen;
+}
+.Book .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: Georgia;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 90%;
+}
+.Book .content .page {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  outline: 1px solid brown;
+}
+.Book .content .page_heading {
+  text-align: center;
+  font-style: italic;
+  color: #5A524D;
+}
+.Book .content .page_action_block {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 300px;
+  width: 100%;
+  max-height: inherit;
+  padding: 0 5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Georgia;
+  outline: 1px solid pink;
+}
+.Book .content .page .map_button {
+  position: relative;
+  width: 95%;
+  height: 95%;
+  margin: 12% auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  cursor: pointer;
+  outline: none;
+}
+.Book .content .page .map_button::-moz-focus-inner,
+.Book .content .page .map_button:active,
+.Book .content .page .map_button:focus {
+  outline: none;
+  border: 0;
+}
+.Book .content .page .map_button .button_holder {
+  position: absolute;
+  width: 25%;
+  height: 35%;
+  background: url('/src/assets/images/decor/btn_holder_diagonalUp.png') no-repeat center center;
+  background-size: contain;
+  outline: 2px solid red;
+}
+.Book .content .page .map_button .button_holder.top {
+  top: -20px;
+}
+.Book .content .page .map_button .button_holder.top.right {
+  background: url('/src/assets/images/decor/btn_holder_diagonalDown.png') no-repeat center center;
+  background-size: contain;
+}
+.Book .content .page .map_button .button_holder.bottom {
+  bottom: -25px;
+}
+.Book .content .page .map_button .button_holder.bottom.left {
+  background: url('/src/assets/images/decor/btn_holder_diagonalDown.png') no-repeat center center;
+  background-size: contain;
+}
+.Book .content .page .map_button .button_holder.left {
+  left: -20px;
+}
+.Book .content .page .map_button .button_holder.right {
+  right: -20px;
+}
+.Book .content .page .map_button .map_figure {
+  padding: 115px;
+  background: url(/src/assets/images/buttons/map.png) center center no-repeat;
+  background-size: contain;
+}
+.Book .content .page .map_button .map_figure:hover {
+  background: url(/src/assets/images/buttons/map_hover.png) center center no-repeat;
+  background-size: contain;
+}
+.Book .content .page .map_button .map_figure:active {
+  background: url(/src/assets/images/buttons/map_active.png) center center no-repeat;
+  background-size: contain;
+}
+.Book .content .page .action_button_back {
+  position: absolute;
+  left: 2%;
+  bottom: 2%;
+  width: 78px;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  background: url(/src/assets/images/buttons/button_back.png) no-repeat center center;
+  background-size: contain;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+.Book .content .page .action_button_back:hover {
+  background: url(/src/assets/images/buttons/button_back_hover.png) no-repeat center center;
+  background-size: contain;
+}
+.Book .content .page .action_button_back:active {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  left: -2%;
+}
+.Book .content .page .action_button_back::-moz-focus-inner,
+.Book .content .page .action_button_back:active,
+.Book .content .page .action_button_back:focus {
+  outline: none;
+  border: 0;
+}
+.Book .content .page.left {
+  -webkit-transform: rotate(-2deg);
+          transform: rotate(-2deg);
+  margin: 0 1%;
+}
+.Book .content .page.left .famous {
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg);
+}
+.Book .content .page.right {
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg);
+  margin: 0 1%;
+}
+.Book .content .page.right .famous {
+  -webkit-transform: rotate(-2deg);
+          transform: rotate(-2deg);
+}
+.Book .content .page .famous {
+  margin-right: 0%;
+}
+.Book .content .action_button.stdSize {
+  padding: 20px 40px !important;
+  font-size: 18px !important;
+}
+.Book .content .action_button {
+  position: relative;
+  margin-left: 5%;
+  padding: 15px 40px;
+  max-width: 70%;
+  font-family: Georgia;
+  font-size: 14px;
+  word-wrap: break-word;
+  background: #DEAB6B;
+  -webkit-box-shadow: 0px 4px 0px #6B4325;
+          box-shadow: 0px 4px 0px #6B4325;
+  border: none;
+  border-radius: 55px;
+  cursor: pointer;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+.Book .content .action_button::-moz-focus-inner,
+.Book .content .action_button:active,
+.Book .content .action_button:focus {
+  outline: none;
+  border: 0;
+}
+.Book .content .action_button:hover {
+  background-color: #FAE4C1;
+}
+.Book .content .action_button:active {
+  background-color: #D9C099;
+  -webkit-box-shadow: 0px 2px 0px #6B4325;
+          box-shadow: 0px 2px 0px #6B4325;
+  margin-top: 2px;
+}
+.Book .content .action_button .button_holder.stdSize {
+  width: 50% !important;
+}
+.Book .content .action_button .button_holder {
+  position: absolute;
+  width: 42%;
+  height: 80px;
+  background: url('/src/assets/images/decor/btn_holder_diagonalDown.png') no-repeat center center;
+  background-size: contain;
+}
+.Book .content .action_button .button_holder.top {
+  top: -15px;
+}
+.Book .content .action_button .button_holder.top.left {
+  top: -20px;
+  background: url('/src/assets/images/decor/btn_holder_diagonalUp.png') no-repeat center center;
+  background-size: contain;
+}
+.Book .content .action_button .button_holder.bottom {
+  bottom: -25px;
+}
+.Book .content .action_button .button_holder.bottom.left {
+  left: -15px;
+}
+.Book .content .action_button .button_holder.bottom.right {
+  bottom: -27px;
+  background: url('/src/assets/images/decor/btn_holder_diagonalUp.png') no-repeat center center;
+  background-size: contain;
+}
+.Book .content .action_button .button_holder.right {
+  right: -30px;
+}
+.Book .content .action_button .button_holder.left {
+  left: -20px;
+}
+.Book .famous {
+  width: 25%;
+  max-width: 160px;
+  height: 140px;
+  max-height: 160px;
+}
+.Book .Lermontov {
+  background: url(/src/assets/images/famous/Lermontov.png) no-repeat center center;
+  background-size: contain;
+}
+.Book .Pushkin {
+  background: url(/src/assets/images/famous/Pushkin.png) no-repeat center center;
+  background-size: contain;
+}

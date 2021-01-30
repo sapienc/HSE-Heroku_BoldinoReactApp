@@ -1,0 +1,343 @@
+* { outline: none !important; }
+
+.wrapper
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 5% 1% 5%;
+    box-sizing: border-box;
+    outline: 1px solid red;
+}
+
+
+
+// ===== [APP-HEADER] =====
+.Heading
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-bottom: -8%;
+  outline: 1px solid yellow;
+
+  &_noBG, &_background {
+    width: 100%;
+    padding: 10% 0;
+  }
+
+  &_background {
+    background: url(/src/assets/images/BBtext.png) center center no-repeat; // svg/BBtext.svg
+    background-size: contain;
+  }
+}
+// .header {
+//   position: relative;
+//   width: 80%;
+//   margin: 0 auto;
+//   text-align: center;
+// }
+
+
+@import '../../assets/styles/common/variables.less';
+// ========================= [ Book ] =========================
+.Book
+{
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+  outline: 1px solid black;
+
+  &_wrap {
+    position: relative;
+    .set_book_size();
+    
+    margin: 0 auto;
+    // margin: -8% auto;
+    // padding: 4% 24%; // for resizable
+    box-sizing: border-box;
+    
+    background: url(/src/assets/images/book.png) center center no-repeat;
+    background-size: contain;
+    outline: 1px solid yellowgreen;
+  }
+
+  // ========================= [ Book Content ] =========================
+  .content {
+    display: flex;
+    // margin-top: -3%;
+    font-family: Georgia;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 90%;
+
+    // ========================= [ Book Page ] =========================
+    .page {
+      position: relative;
+      width: 50%;
+      height: 100%;
+      outline: 1px solid brown;
+
+      // ========================= [ Book Page Heading ] =========================
+      &_heading {
+        text-align: center;
+        font-style: italic;
+        color: #5A524D;
+      }
+      
+
+      // ========================= [ Book Page Actions ] =========================
+      &_action_block {
+        position: relative;
+        display: flex;
+        flex-grow: 2;
+        align-items: center;
+        
+        max-width: 300px;
+        width: 100%;
+        max-height: inherit;
+        padding: 0 5%;
+
+        box-sizing: border-box;
+        font-family: Georgia;
+
+        outline: 1px solid pink;
+      }
+      
+      // ========================= [ Book Page Action Map Button ] =========================
+      .map_button {
+        position: relative;
+        width: 95%;
+        height: 95%;
+        margin: 12% auto;
+        padding: 0;
+
+        border: none;
+        background: transparent;
+        transition: 0.2s all;
+        cursor: pointer;
+        outline: none;
+        
+        // box-shadow: 0px 4px 0px #6B4325, -4px 4px 0px #6B4325;
+        // border: 4px solid #DEAB6B;
+        // border-radius: 10px;
+        // outline: 1px solid red;
+        // &:active { margin-top: 13%; }
+
+        // Убираем outline & border
+        &::-moz-focus-inner, &:active, &:focus { outline: none; border: 0; }
+        
+        // Holder'ы для карты
+        .button_holder {
+          position: absolute;
+          width: 25%;
+          height: 35%;
+          // background: url(/src/assets/images/decor/btn_holder_diagonalUp.png) no-repeat center center;
+          // background-size: contain;
+          .set_bg_contain('decor/btn_holder_diagonalUp.png');
+          outline: 2px solid red;
+
+          
+
+          &.top {
+            top: -20px;
+            &.right { .set_bg_contain('decor/btn_holder_diagonalDown.png'); }
+          }
+          &.bottom {
+            bottom: -25px;
+            &.left { .set_bg_contain('decor/btn_holder_diagonalDown.png'); }
+          }
+          &.left { left: -20px; }
+          &.right { right: -20px; }
+        }
+        
+        // Сама карта внутри кнопки
+        .map_figure {
+          padding: 115px;
+          background: url(/src/assets/images/buttons/map.png) center center no-repeat;
+          background-size: contain;
+
+          &:hover {
+            background: url(/src/assets/images/buttons/map_hover.png) center center no-repeat;
+            background-size: contain;
+          }
+          &:active {
+            background: url(/src/assets/images/buttons/map_active.png) center center no-repeat;
+            background-size: contain;
+          }
+        }
+      }
+
+      // ========================= [ Book Page Action Back Button ] =========================
+      .action_button_back {
+        position: absolute;
+        left: 2%;
+        bottom: 2%;
+        width: 78px;
+        height: 40px;
+        
+        cursor: pointer;
+        border: none;
+        background: url(/src/assets/images/buttons/button_back.png) no-repeat center center;
+        background-size: contain;
+        transition: 0.2s all;
+      
+        &:hover {
+          background: url(/src/assets/images/buttons/button_back_hover.png) no-repeat center center;
+          background-size: contain;
+        }
+
+        &:active {
+          // transform: rotate(6deg);
+          transition: 0.2s all;
+          left: -2%;
+        }
+
+        // Убираем outline & border
+        &::-moz-focus-inner, &:active, &:focus { outline: none; border: 0; }
+      }
+      // ========================= [ Book Page Left ] =========================
+      &.left {
+        transform: rotate(-2deg);
+        margin: 0 1%;
+
+        .famous { transform: rotate(2deg); }
+      }
+      // ========================= [ Book Page Right ] =========================
+      &.right {
+        transform: rotate(2deg);
+        margin: 0 1%;
+
+        .famous { transform: rotate(-2deg); }
+      }
+      
+      & .famous { margin-right: 0%; } //ТАК_ЛУЧШЕ
+      // & .famous { margin-right: 10%; } //ПОДГОН
+      // & .famous { margin-right: 15%; }
+    }
+    // ========================= [ Book Page Action Button ] =========================
+    .action_button.stdSize { //СПЕЦИАЛЬНЫЙ КЛАСС ГДЕ БЕЗ ПОДГОНА
+      padding: 20px 40px !important;
+      // max-width: 60% !important; // с ним хуже
+      font-size: 18px !important;
+    }
+    .action_button {
+      position: relative;
+      margin-left: 5%; //ТАК_ЛУЧШЕ
+      padding: 15px 40px;//ПОДГОН
+      // padding: 20px 40px;
+      max-width: 70%; //ПОДГОН
+      // max-width: 60%;
+      // height: 20%;
+      
+      font-family: Georgia;
+      font-size: 14px; //ПОДГОН
+      // font-size: 18px;
+      word-wrap: break-word;
+      
+      background: #DEAB6B;
+      box-shadow: 0px 4px 0px #6B4325;
+      border: none;
+      border-radius: 55px;
+
+      cursor: pointer;
+      transition: 0.2s all;
+
+      // Убираем outline & border
+      &::-moz-focus-inner, &:active, &:focus { outline: none; border: 0; }
+
+      &:hover { background-color: #FAE4C1; }
+
+      &:active {
+        background-color: #D9C099;
+        box-shadow: 0px 2px 0px #6B4325;
+        margin-top: 2px;
+      }
+
+      // ========================= [ Book Page Action Button Holders ] =========================
+      .button_holder.stdSize {
+        width: 50% !important;
+      }
+      .button_holder {
+        position: absolute;
+        width: 42%; //ПОДГОН
+        // width: 50%;
+        height: 80px;
+        // background: url(/src/assets/images/decor/btn_holder_diagonalDown.png) no-repeat center center;
+        // background-size: contain;
+        
+        .set_bg_contain('decor/btn_holder_diagonalDown.png');
+
+        &.top {
+          top: -15px;
+          &.left {
+            top: -20px;
+            .set_bg_contain('decor/btn_holder_diagonalUp.png');
+          }
+        }
+        &.bottom {
+          bottom: -25px;
+          &.left { left: -15px; }
+          &.right {
+            bottom: -27px;
+            .set_bg_contain('decor/btn_holder_diagonalUp.png');
+          }
+        }
+        &.right { right: -30px; }
+        &.left { left: -20px; }
+      }
+      // .top_holder {
+      //   position: absolute;
+      //   width: 50%;
+      //   height: 80px;
+      //   top: -15px;
+      //   right: -10px;
+      //   background: url(/src/assets/images/decor/btn_holder.png) no-repeat center center;
+      //   background-size: contain;
+      // }
+    }
+  }
+  .famous {
+    // width: 140px;
+    width: 25%;
+    max-width: 160px;
+    height: 140px;
+    max-height: 160px;
+  }
+  .Lermontov {
+    background: url(/src/assets/images/famous/Lermontov.png) no-repeat center center;
+    background-size: contain;
+  }
+  .Pushkin {
+    background: url(/src/assets/images/famous/Pushkin.png) no-repeat center center;
+    background-size: contain;
+  }
+  
+}
+
+
+
+// .testModalWindowZone
+//   {
+//     position: absolute !important;
+//     padding-top: 20px !important;
+//     padding-bottom: 20px !important;
+//     top: 0;
+//     text-align: center;
+
+//     background: rgba(21,21,21, 0.5);
+  
+//     .modalIMGBlock
+//     {
+//       display: block;
+//       margin: 0 auto;
+      
+//       .modalIMG {
+//         border-radius: 4px;
+//       }
+//     }
+//   }

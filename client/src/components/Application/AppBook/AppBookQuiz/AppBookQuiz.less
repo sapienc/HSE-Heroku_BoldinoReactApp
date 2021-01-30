@@ -1,0 +1,349 @@
+@import '../../../../assets/styles/common/variables.less';
+// ========================= [ Tape Styles ] =========================
+.content .decors {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    .Ink, .Pushkin {
+      position: absolute;
+    }
+    .Ink {
+      width: 140px;
+      height: 205px;
+      bottom: 55px;
+      right: 8px;
+      background: url(/src/assets/images/decor/Ink.png) no-repeat center center;
+      background-size: contain;
+    }
+    .Pushkin {
+      width: 65px; // 1)90px 2)80px
+      height: 90px; // 1)115px 2)100px
+      top: 15px;
+      left: 20px;
+      background: url(/src/assets/images/famous/Pushkin.png) no-repeat center center;
+      background-size: contain;
+    }
+  }
+  .tape_bg {
+    position: absolute;
+    width: 75%;
+    height: 250px;
+    top: -151px;
+    // padding: 10% 0;
+    background: url(/src/assets/images/decor/tape_bg.png) center center no-repeat; // svg/BBtext.svg
+    background-size: contain;
+    z-index: -1;
+    box-sizing: border-box;
+    outline: 4px solid blue;
+  }
+  .tape {
+    // visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 110%;
+    top: -114px;
+    left: 0;
+    .set_bg_contain('decor/tape_bg_main.png');
+    z-index: 100;
+    outline: 2px solid red;
+  
+    &.mini {
+      width: 65%;
+      height: 40%;
+      top: -124px;
+      left: 115px;
+      .set_bg_contain('decor/tape_bg_main_mini.png');
+  
+      .tape_content {
+        display: flex;
+        align-items: center;
+        width: 85% !important;
+        height: 80% ;
+        padding: 5% 0 0 0;
+      }
+  
+      .tape_action_block { display: none; }
+      // .tape_heading_text { display: none; }
+  
+      .tape_info_block { margin: 2% 0; }
+  
+      .image {
+        // position: absolute;
+        width: 15%;
+        padding-top: 10px;
+        // height: 50%;
+        // top: 50px;
+        // right: 0;
+      }
+  
+      .socials{
+        margin: 2% 0 0 0;
+        
+        .social {
+          height: 50px;
+          margin: 0 15px;
+        }
+      }
+    }
+    
+    .tape_content {
+      position: relative;
+      width: 45%;
+      margin: 0 auto;
+      // padding: 18% 0 0 0; // [Changed in FLEX methodology]
+      // height: 75%; // [Changed in FLEX methodology]
+      text-align: center;
+  
+      // [FLEX methodology]
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%; 
+      padding-top: 10%;
+      padding-bottom: 2%;
+      box-sizing: border-box;
+    }
+  
+    .tape_heading_text {
+      margin: 0 auto;
+      color: white;
+      font-size: 32px;
+      font-weight: lighter;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  
+    .tape_info_block {
+      display: flex;
+      padding: 0 5px;
+      margin: 5% 0;
+      width: 98%; // [Added in FLEX methodology]
+      height: 75%;
+      flex-direction: column;
+      justify-content: space-evenly;
+      text-align: center;
+      font-size: 18px;
+      color: white;
+      outline: 1px solid pink;
+    }
+    // .tape_info {
+    //   position: relative;
+    // }
+  
+    .socials {
+      display: flex;
+      // flex-wrap: wrap;
+      width: 100%;
+      height: 120%;
+      justify-content: center;
+  
+      .social {
+        max-width: 110px;
+        height: 80px; // height: 100%;
+        padding: 0;
+        border: none;
+        background: none;
+        margin: 0 auto;
+        border-radius: 100px;
+        box-shadow: 0px 4px 0px #6B4325;
+        cursor: pointer;
+        transition: 0.2s all;
+        
+        & img { // & .vk, & .ok, & .fb {
+          height: 100%;
+        }
+  
+        &:active {
+          & img { transition: 0.2s all; margin-top: 4px; }
+        }
+        &:hover {
+          & img { transition: 0.2s all; padding-top: 2px; }
+        }
+  
+        // .vk { .set_bg_contain('icons/social_vk_icon.png'); }
+        // .ok { .set_bg_contain('icons/social_ok_icon.png'); }
+        // .fb { .set_bg_contain('icons/social_fb_icon.png'); }
+      }
+    }
+  
+    .tape_action_block {
+      position: relative;
+      display: flex;
+      padding: 10px 0px;
+      box-sizing: border-box;
+      height: 15%; // [Added in FLEX methodology]
+  
+      .action_button {
+        width: 170px;
+        height: 50px;
+        padding: 10px 5px;
+        margin: 0 5px;
+        font-size: 16px;
+  
+        &:active, &:focus {
+          margin-bottom: 2px;
+        }
+      }
+    }
+  }
+  
+  // Настройки страниц при .tape классе
+  .tape ~ .page {
+    // Настройки левой страницы
+    &.left { justify-content: flex-end; }
+    // Настройки правой страницы
+    &.right {
+      justify-content: flex-start;
+      padding-left: 20px;
+    }
+    // Настройки обеих страниц 
+    &.left, &.right {
+      // [ФИШКА от 16.10.2020 04:03 :)] обеспечивает гибкость вариантов ответа
+      // если какая-то кнопка на странице будет отсутствовать, то кнопка встанет по-середине и это будет выглядеть "логично"
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    // Настройки блоков для кнопок
+    .page_action_block {
+      max-width: 100%;
+      min-height: 180px;
+      justify-content: inherit; // space-around OR center
+    }
+    // Настройки блоков для кнопок у отдельных страниц
+    &.left .page_action_block { padding: 0 5% 0 5%; }
+    &.right .page_action_block { padding: 0 5% 0 5%; }
+  
+    // Настройки кнопок
+    .action_button {
+      max-width: 100%;
+      min-height: 30%; // [ADDED FOR THE SAME HEIGHT]
+      margin: 0 auto;
+  
+      // Настройки держалок для кнопок
+      .button_holder {
+        .set_bg_contain('decor/btn_holder_diagonalDown.png');
+    
+        &.top {
+          top: -15px;
+          &.left { .set_bg_contain('decor/btn_holder_diagonalUp.png'); }
+        }
+        &.bottom {
+          bottom: -27px;
+          &.right { .set_bg_contain('decor/btn_holder_diagonalUp.png'); }
+        }
+        &.right { right: -30px; }
+        // &.left { left: -35px !important; }
+        // &.right { right: -55px; }
+        &.left { left: -55px !important; }
+      }
+    }
+    
+  }
+  
+  
+  
+  
+  
+  // ИЗМЕНЕНО
+  .tape_info {
+    overflow: auto;
+    white-space: pre-line;
+  }
+  
+  // РАСШИРЕНО
+  .tape_info_block
+  {
+    overflow: auto;
+  
+    .image
+    {
+      width: 100px !important;
+      max-width: 100px !important;
+      margin: 0 auto;
+      border-radius: 5px;
+      box-shadow: 0px 4px 5px #6B4325;
+      cursor: pointer;
+    }
+  }
+  
+  .action_button.expand {
+    position: absolute;
+    bottom: -30px;
+
+    // width: 66px !important;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 10px 10px !important;
+    text-align: center;
+    margin: 0 auto !important;
+    // box-shadow: 4px 0px 0px #6B4325;
+  
+    img {
+      width: 16px;
+      height: 16px;
+      text-align: center;
+      // background: #ce8d5d;
+      border-radius: 50px;
+      padding: 4px 0 0 .5px;
+    }
+
+    &:active, &:focus {
+      margin-bottom: -2px !important;
+      margin-top: 2px !important;
+      // height: 38px !important;
+      // padding-top: 12px !important;
+      // padding-bottom: 8px !important;
+    }
+  }
+  
+  // .decors {
+  //   .pattern {
+  //     position: absolute;
+  //   }
+  //   .pattern {
+  //     width: 180px;
+  //     height: 50px;
+  //     background: url(/src/assets/images/decor/pattern_3.png) no-repeat center center;
+  //     background-size: contain;
+  //     bottom: 260px;
+  
+  //     &.left {
+  //       left: 65px;
+  //       transform: rotate(-2deg);
+  //     }
+  
+  //     &.right
+  //     {
+  //       right: 65px;
+  //       transform: rotate(2deg);
+  //     }
+  //   }
+  // }
+  
+  
+    // ДОБАВЛЕНО
+  .btn_link {
+    display: contents;
+  }
+
+
+  .testModalWindowZone
+  {
+    position: absolute !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    top: 0;
+    text-align: center;
+  
+    .modalIMGBlock
+    {
+      display: block;
+      margin: 0 auto;
+      
+      .modalIMG {
+        border-radius: 4px;
+      }
+    }
+  }
