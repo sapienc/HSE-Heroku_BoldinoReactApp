@@ -1,4 +1,17 @@
-const app = require('./app');
+/* ========== [ПОДКЛЮЧЕНИЕ БИБЛИОТЕК] ========== */
+const express = require('express');
+const bodyParser = require('body-parser'); // Для парсинга body в объекты JS у запросов для фреймворка Express
+const path = require('path');
+
+/* ----------------------------------- */
+
+/* ========== [НАСТРОЙКИ ПРИЛОЖЕНИЯ] ========== */
+const app = express();
+
+app.use(require('cors')()); // для возможности обрабатывать запросы с других доменов (допустим клиент на другом домене)
+app.use(bodyParser.urlencoded({ extended: true })); // защищаем URL от некоторых символов
+app.use(bodyParser.json()); // чтобы превращать пришедшие с responce'a json объекты в объекты javascript
+
 const PORT = process.env.PORT || 4000;
 const IS_DEV = process.env.NODE_ENV !== 'production';
 
@@ -19,15 +32,15 @@ if (!IS_DEV && cluster.isMaster) {
     });
 }
 else {
-    app.use(express.static('client/build/')); // используем наше построенное приложение как статику
+    app.use(express.static('../client/build/')); // используем наше построенное приложение как статику
 
     // Отлавливаем и обрабатываем все-возможные маршруты нашего забилденного приложения (таким образом маршруты приложения с клиента также будут работать)
     app.get('*', (request, response) => {
         response.sendFile(
-            path.resolve(__dirname, 'client', 'build', 'index.html')
+            path.resolve(__dirname, '../client', 'build', 'index.html')
         )
     });
     
     // Запуск сервера
-    app.listen(PORT, () => console.log(`${IS_DEV ? '[DEV SERVER]' : '[CLUSTER_WORKER: ' + process.pid}] started at localhost:' + ${PORT}`));
+    app.listen(PORT, () => console.log(`${IS_DEV ? '[DEV SERVER]' : '[CLUSTER_WORKER: ' + process.pid + ']'} started at localhost:${PORT}`));
 }

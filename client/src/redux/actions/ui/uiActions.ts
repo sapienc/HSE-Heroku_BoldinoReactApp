@@ -1,4 +1,3 @@
-// import { HeadingsEnum } from "../../../shared/ui/headingEnum"
 import { UI_CHANGE_HEADING } from "../../types/uiActionsTypes"
 
 export const changeHeading = (payload: boolean) => {

@@ -208,7 +208,7 @@ export const AppBookQuiz = () => {
     const getTextByNum = (num: number, textFormsArr: [string, string, string] = ['балл', 'балла', 'баллов']): string => {
         num = Math.abs(num) % 100;
         const num_1 = num % 10;
-        if (num_1 == 1) return textFormsArr[0]; // ед.число, например: балл
+        if (num_1 === 1) return textFormsArr[0]; // ед.число, например: балл
         if (num_1 > 1 && num_1 < 5) return textFormsArr[1]; // мн.число, например балла
         if (num > 10 && num < 20) return textFormsArr[2]; // мн.число, например баллов
         return textFormsArr[2]; // в любом случае: "баллов"
@@ -219,7 +219,7 @@ export const AppBookQuiz = () => {
     }
     // =============== [Получение четности/нечетности числа] ===============
     const getNumOrder = (num: number):string => {
-        return (num % 2 == 0) ? 'odd' : 'even';
+        return (num % 2 === 0) ? 'odd' : 'even';
     }
     // =============== [Заполнение кнопок с вариантами ответов] ===============
     const fillAnswerButtons = (answersObj: IAnswerButtons): void => {
@@ -265,16 +265,16 @@ export const AppBookQuiz = () => {
         return quizInfo.quizContent[questionID].questionRightAnswerDescription;
     }
     // =============== [Получить описание пояснения правильного ответа] ===============
-    const updateTape = (givenTapeInfo?: TapeDataType): void => {
-        let updatedTapeInfo = givenTapeInfo || {
-            heading: (userProgressState.currentQuestionID + 1),
-            img: quizInfo.quizContent[userProgressState.currentQuestionID].questionImgPath || '',
-            tapeOne: quizInfo.quizContent[userProgressState.currentQuestionID].questionContent || '',
-            tapeTwo: quizInfo.quizContent[userProgressState.currentQuestionID].questionMainPart,
-            tapeMini: false
-        };
-        updateTapeState( (prevState) => ({...prevState, updatedTapeInfo}) );
-    }
+    // const updateTape = (givenTapeInfo?: TapeDataType): void => {
+    //     let updatedTapeInfo = givenTapeInfo || {
+    //         heading: (userProgressState.currentQuestionID + 1),
+    //         img: quizInfo.quizContent[userProgressState.currentQuestionID].questionImgPath || '',
+    //         tapeOne: quizInfo.quizContent[userProgressState.currentQuestionID].questionContent || '',
+    //         tapeTwo: quizInfo.quizContent[userProgressState.currentQuestionID].questionMainPart,
+    //         tapeMini: false
+    //     };
+    //     updateTapeState( (prevState) => ({...prevState, updatedTapeInfo}) );
+    // }
 
 
     // =============== [Кнопка продолжить] ===============
@@ -299,7 +299,7 @@ export const AppBookQuiz = () => {
         }
         
         // Если игра во всю идет, то имзеним некоторую часть элементов дизайна (случай когда лента свернута)
-        else if(userProgressState.currentQuestionID > 0 && userProgressState.userAnswered == false) {
+        else if(userProgressState.currentQuestionID > 0 && userProgressState.userAnswered === false) {
             console.log("2.HIDING TAPE")
             hideTape();
             fillAnswerButtons(quizInfo.quizContent[userProgressState.currentQuestionID - 1].questionAnswers
@@ -309,7 +309,7 @@ export const AppBookQuiz = () => {
         
         // Иначе просто обновим данные вопроса (случай когда лента развернута)
         else {
-            if (userProgressState.currentQuestionID == quizInfo.quizContent.length) {
+            if (userProgressState.currentQuestionID === quizInfo.quizContent.length) {
                 console.log("4.THE END OF THE GAME")
                 return finishQuiz();
             }
@@ -359,7 +359,7 @@ export const AppBookQuiz = () => {
         const scoresText = 'Вы набрали ' + userProgressState.currentScoresAmount + '/' + allAvailableScores + ' ' + getPointsText(userProgressState.currentScoresAmount);
         let tapeTwoText = '';
 
-        if (userProgressState.currentScoresAmount == 0) {
+        if (userProgressState.currentScoresAmount === 0) {
             tapeTwoText = 'Ничего страшного! Просто попробуйте еще раз.';
         }
         else if ((allQuestionsAmount - userProgressState.currentScoresAmount) <= 1) {
@@ -388,7 +388,7 @@ export const AppBookQuiz = () => {
             console.log("givenAnswerID:", givenAnswerID);
             console.log("givenAnswerID == rightAnswerID:", givenAnswerID == rightAnswerID);
             console.log("currentQuestion:", currentQuestion); */
-            let headingInfo, tapeOne, tapeTwo;
+            // let headingInfo, tapeOne, tapeTwo;
             // if(givenAnswerID == rightAnswerID) { // if(userProgressState.currentUserAnswerID == rightAnswerID) {
             if(isGivenAnswerRight(givenAnswerID)) {
                 updateUserProgressState( (prevState) => ({
@@ -557,7 +557,7 @@ export const AppBookQuiz = () => {
                     <div className={`page ${page.class}`} key={`book_page_answers_${pageIDX}`}>
                         {
                             answerBtnsState.map( (btn) => (
-                                (getNumOrder(btn.answerID) == page.order) ?
+                                (getNumOrder(btn.answerID) === page.order) ?
                                     <div className="page_action_block" key={`book_page_answer_button_${btn.answerID}`}>
                                         <button className="action_button" onClick={ () => makeAnswer(btn.answerID) }>
                                             <span className="button_holder top right" />

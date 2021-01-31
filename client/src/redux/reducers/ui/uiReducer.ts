@@ -1,5 +1,3 @@
-// import { HeadingsEnum } from "../../../shared/ui/headingEnum"
-
 import { UIActions } from "../../actions/ui/uiActions";
 import { UI_CHANGE_HEADING } from "../../types/uiActionsTypes";
 

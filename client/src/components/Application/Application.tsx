@@ -3,15 +3,10 @@ import AppBook from './AppBook';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers';
 import className from 'classnames';
-import { HeadingsEnum } from '../../shared/ui/headingEnum';
 import { useEffect } from 'react';
 import { changeHeading } from '../../redux/actions/ui/uiActions';
 
-type AppProps = {
-
-};
-
-export const Application: React.FC = (props:any) => {
+export const Application: React.FC = () => {
 
     const headingVisibility = useSelector((state: RootState) => state.ui.heading);
 
