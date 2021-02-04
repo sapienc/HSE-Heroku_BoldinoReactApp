@@ -1,0 +1,267 @@
+.map_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+#map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.map .backBtnZone {
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  position: fixed;
+  bottom: 20px;
+  z-index: 1000;
+  text-align: center;
+  min-height: 20px;
+}
+.map_back_btn,
+.popupMoreBtn {
+  color: white;
+  background: #C4312C;
+  padding: 8px 25px;
+  border: 0;
+  border-bottom: 3px solid #6B4325;
+  border-radius: 20px;
+  font-size: 1.6em;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.map_back_btn:hover,
+.popupMoreBtn:hover {
+  cursor: pointer;
+  background: #de342e;
+}
+.map_back_btn:active,
+.popupMoreBtn:active,
+.map_back_btn:focus,
+.popupMoreBtn:focus {
+  margin-top: 2px;
+  border-bottom: 1px solid #6B4325;
+}
+.testModalWindowZone {
+  position: absolute !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  top: 0;
+  text-align: center;
+}
+.testModalWindowZone .modalIMGBlock {
+  display: block;
+  margin: 0 auto;
+}
+.testModalWindowZone .modalIMGBlock .modalIMG {
+  border-radius: 4px;
+}
+.modalWindowZone,
+.testModalWindowZone {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 80px 380px 120px 380px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: rgba(21, 21, 21, 0.5);
+  z-index: 1000;
+  font-size: 18px;
+  color: white;
+}
+.modalWindowZone .modalWindowWrapper,
+.testModalWindowZone .modalWindowWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.modalWindowZone .modalWindowWrapper .closeBtnBlock,
+.testModalWindowZone .modalWindowWrapper .closeBtnBlock {
+  position: absolute;
+  top: -20px;
+  right: -45px;
+}
+.modalWindowZone .modalWindowWrapper .closeBtnBlock .closeBtn,
+.testModalWindowZone .modalWindowWrapper .closeBtnBlock .closeBtn {
+  display: block;
+  text-decoration: none;
+  height: 13px;
+}
+.modalWindowZone .modalWindowWrapper .closeBtnBlock .closeBtn:hover,
+.testModalWindowZone .modalWindowWrapper .closeBtnBlock .closeBtn:hover {
+  cursor: pointer;
+  background: #DE342E;
+}
+.modalWindowZone .modalWindow,
+.testModalWindowZone .modalWindow {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  background: #DF812F;
+  overflow: auto;
+  border: 8px solid white;
+  -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.4);
+          box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+.modalWindowZone .modalWindow .headingBlock .heading,
+.testModalWindowZone .modalWindow .headingBlock .heading {
+  margin: 0;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.modalWindowZone .modalWindow .imgBlock,
+.testModalWindowZone .modalWindow .imgBlock {
+  max-width: 400px;
+  max-height: 400px;
+  margin-right: 15px;
+  float: left;
+}
+.modalWindowZone .modalWindow .imgBlock .img,
+.testModalWindowZone .modalWindow .imgBlock .img {
+  width: 325px;
+  height: 325px;
+  border: 4px solid white;
+  border-radius: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  background: white;
+}
+.modalWindowZone .modalWindow .descriptionBlock .description,
+.testModalWindowZone .modalWindow .descriptionBlock .description {
+  margin: 0;
+  text-align: justify;
+}
+.modalWindowZone .modalWindow::after,
+.testModalWindowZone .modalWindow::after {
+  clear: both;
+}
+.popupWrapper {
+  width: initial;
+  color: white;
+  padding: 6px;
+}
+.popupWrapper .infoBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.popupWrapper .btnBLock {
+  font-size: 1.2em;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  text-align: center;
+  width: 100%;
+  margin-top: 4px;
+}
+.popupWrapper .btnBLock .popupMoreBtn {
+  width: inherit;
+  padding: 8px 25px;
+  cursor: pointer;
+  margin-top: 4px;
+  font-size: 1.2em;
+}
+.popupWrapper .btnBLock .popupMoreBtn:active,
+.popupWrapper .btnBLock .popupMoreBtn:focus {
+  margin-top: 6px;
+}
+.popupWrapper .popBlock {
+  width: 100%;
+  height: inherit;
+  max-height: 125px;
+}
+.popupWrapper .popBlock:first-child {
+  width: auto;
+}
+.popupWrapper .popBlock:last-child {
+  padding: 0 20px 0 10px;
+}
+.popupWrapper .popBlock .info {
+  margin: 0;
+  padding: 0;
+}
+.popupWrapper .popBlock .heading_text {
+  text-align: center !important;
+  margin: 0 0 5px 0;
+}
+.popupWrapper .popBlock .descr_text {
+  text-align: justify;
+  margin: 0;
+}
+.popupWrapper .img {
+  width: 125px;
+  height: 125px;
+  border: 4px solid white;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+}
+.leaflet-container {
+  background: #bcd89e !important;
+}
+.leaflet-popup.custom {
+  padding-top: 20px;
+}
+.custom_closed .popBlock:last-child {
+  overflow: auto;
+}
+.custom .leaflet-popup-content-wrapper,
+.custom_closed .leaflet-popup-content-wrapper {
+  border-radius: 6px;
+  margin: 10px 20px 0 20px;
+}
+.custom .leaflet-popup-content,
+.custom_closed .leaflet-popup-content {
+  width: 350px !important;
+  border-radius: 5px !important;
+  margin: 8px 6px !important;
+  background: #DF812F !important;
+  overflow: hidden !important;
+}
+.custom_closed .leaflet-popup-content {
+  background: #5E554E !important;
+}
+.custom .leaflet-popup-close-button,
+.custom_closed .leaflet-popup-close-button {
+  padding: 12px 10px !important;
+}
+.custom .leaflet-popup-close-button,
+.custom_closed .leaflet-popup-close-button,
+.modalWindowZone .closeBtn {
+  background: #C4312C !important;
+  font: bold 22px/12px Tahoma, Verdana, sans-serif !important;
+  padding: 12px 10px 26px 10px;
+  border-radius: 50px !important;
+  color: white !important;
+  top: 10px !important;
+  right: 5px !important;
+  border: 5px solid white !important;
+}
+.custom .leaflet-popup-close-button:hover,
+.custom_closed .leaflet-popup-close-button:hover,
+.modalWindowZone .closeBtn:hover {
+  background: #DE342E;
+}
+.custom.leaflet-interactive {
+  stroke: white;
+}
+.custom.leaflet-interactive:hover {
+  fill: white;
+  fill-opacity: 0.3;
+}
+.custom.leaflet-interactive:active,
+.custom.leaflet-interactive:focus {
+  fill: red;
+  fill-opacity: 0.3;
+}

@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { QuizPages } from '../../../../shared/components/QuizPages';
+import { IAnswerButtons, IQuizData, TapeDataType, GameDataType, ProgressDataType, ImageViewerType } from '../QuizTypes';
+
 import classNames from 'classnames';
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 
 import LinkButton from '../../../../shared/components/LinkButton';
 import { changeHeading } from '../../../../redux/actions/ui/uiActions';
@@ -10,7 +15,6 @@ import IMG_BTN_DOWN from '../../../../assets/images/buttons/button_down.png';
 import IMG_VK_ICON from '../../../../assets/images/icons/social_vk_icon.png';
 import IMG_OK_ICON from '../../../../assets/images/icons/social_ok_icon.png';
 import IMG_FB_ICON from '../../../../assets/images/icons/social_fb_icon.png';
-
 
 export const AppBookQuiz = () => {
 
@@ -55,10 +59,7 @@ export const AppBookQuiz = () => {
     };
     const _TEMP_DEFAULT_QUESTIONS_WEIGHT = 5;
 
-    const PAGES_CLASSES = [
-        {class: 'left', order: 'even'},
-        {class: 'right', order: 'odd'}
-    ];
+    
 
     // ========== [QUIZ DATA] ==========
     const [ quizInfo, setQuizInfo ] = useState({} as IQuizData);
@@ -66,6 +67,7 @@ export const AppBookQuiz = () => {
     // ========== [UI] ==========
     const [ tapeState, updateTapeState ] = useState<TapeDataType>( DEFAULT_TAPE_STATE );
     const [ answerBtnsState, updateAnswerBtnsState ] = useState<IAnswerButtons>( DEFAULT_ANSWER_BUTTONS_STATE );
+    const [ picState, updatePicState ] = useState<ImageViewerType>({photoIndex: 0, isOpen: false});
     // ========== [GAME] ==========
     const [ gameState, updateGameState ] = useState<GameDataType>( DEFAULT_GAME_STATE );
     const [ userProgressState, updateUserProgressState ] = useState<ProgressDataType>( DEFAULT_PROGRESS_STATE );
@@ -86,24 +88,24 @@ export const AppBookQuiz = () => {
                     questionID: 1,
                     questionMainPart: "Суть 1",
                     questionContent: "Описание 1",
-                    questionImgPath: "",
+                    questionImgPath: "/logo512.png",
                     questionVisibility: true,
                     questionAnswers: [
                         {
-                            answerID: 1,
-                            answerContent: "Содержимое номер один"
+                            btnID: 1,
+                            btnContent: "Содержимое номер один"
                         },
                         {
-                            answerID: 2,
-                            answerContent: "Содержимое номер два"
+                            btnID: 2,
+                            btnContent: "Содержимое номер два"
                         },
                         {
-                            answerID: 3,
-                            answerContent: "Содержимое номер три"
+                            btnID: 3,
+                            btnContent: "Содержимое номер три"
                         },
                         {
-                            answerID: 4,
-                            answerContent: "Содержимое номер четыре"
+                            btnID: 4,
+                            btnContent: "Содержимое номер четыре"
                         }
                     ],
                     questionRightAnswerID: 3,
@@ -117,20 +119,20 @@ export const AppBookQuiz = () => {
                     questionVisibility: true,
                     questionAnswers: [
                         {
-                            answerID: 1,
-                            answerContent: "Ответ номер один"
+                            btnID: 1,
+                            btnContent: "Ответ номер один"
                         },
                         {
-                            answerID: 2,
-                            answerContent: "Ответ номер два"
+                            btnID: 2,
+                            btnContent: "Ответ номер два"
                         },
                         {
-                            answerID: 3,
-                            answerContent: "Ответ номер три"
+                            btnID: 3,
+                            btnContent: "Ответ номер три"
                         },
                         {
-                            answerID: 4,
-                            answerContent: "Ответ номер четыре"
+                            btnID: 4,
+                            btnContent: "Ответ номер четыре"
                         }
                     ],
                     questionRightAnswerID: 1,
@@ -144,20 +146,20 @@ export const AppBookQuiz = () => {
                     questionVisibility: true,
                     questionAnswers: [
                         {
-                            answerID: 1,
-                            answerContent: "Ответ номер один 3"
+                            btnID: 1,
+                            btnContent: "Ответ номер один 3"
                         },
                         {
-                            answerID: 2,
-                            answerContent: "Ответ номер два 3"
+                            btnID: 2,
+                            btnContent: "Ответ номер два 3"
                         },
                         {
-                            answerID: 3,
-                            answerContent: "Ответ номер три 3"
+                            btnID: 3,
+                            btnContent: "Ответ номер три 3"
                         },
                         {
-                            answerID: 4,
-                            answerContent: "Ответ номер четыре 3"
+                            btnID: 4,
+                            btnContent: "Ответ номер четыре 3"
                         }
                     ],
                     questionRightAnswerID: 2,
@@ -187,21 +189,21 @@ export const AppBookQuiz = () => {
     }, [quizInfo]);
 
     
-    useEffect( () => {
-        console.log("CURRENT USER_PROGRESS_STAE:", userProgressState);
-    }, [userProgressState] )
+    // useEffect( () => {
+    //     console.log("CURRENT USER_PROGRESS_STAE:", userProgressState);
+    // }, [userProgressState] )
 
-    useEffect( () => {
-        console.log("CURRENT TAPE_STATE:", tapeState);
-    }, [tapeState] )
+    // useEffect( () => {
+    //     console.log("CURRENT TAPE_STATE:", tapeState);
+    // }, [tapeState] )
     
-    useEffect( () => {
-        console.log("CURRENT GAME_STATE:", gameState);
-    }, [gameState] )
+    // useEffect( () => {
+    //     console.log("CURRENT GAME_STATE:", gameState);
+    // }, [gameState] )
     
-    useEffect( () => {
-        console.log("CURRENT ANSWER_BTNS_STATE:", answerBtnsState);
-    }, [answerBtnsState] )
+    // useEffect( () => {
+    //     console.log("CURRENT ANSWER_BTNS_STATE:", answerBtnsState);
+    // }, [answerBtnsState] )
 
 
     // =============== [Склонение слов по числу] ===============
@@ -216,10 +218,6 @@ export const AppBookQuiz = () => {
     // =============== [Получение текста для количества баллов] ===============
     const getPointsText = (amount: number):string => {
         return getTextByNum(amount);
-    }
-    // =============== [Получение четности/нечетности числа] ===============
-    const getNumOrder = (num: number):string => {
-        return (num % 2 === 0) ? 'odd' : 'even';
     }
     // =============== [Заполнение кнопок с вариантами ответов] ===============
     const fillAnswerButtons = (answersObj: IAnswerButtons): void => {
@@ -256,7 +254,7 @@ export const AppBookQuiz = () => {
         // айди вопроса либо берем с функции, либо берем текущий из стейта
         let questionID = givenQuestionID || (userProgressState.currentQuestionID - 1); // -1, т.к изначально вначале игры мы увеличиваем счетчик текущего вопроса на 1 и везде нужно минусовать еденицу чтобы получать актуальный текущий вопрос
         let rightAnswerID = getQuizRightAnswerID(questionID);
-        return quizInfo.quizContent[questionID].questionAnswers[rightAnswerID - 1].answerContent;
+        return quizInfo.quizContent[questionID].questionAnswers[rightAnswerID - 1].btnContent;
     }
     // =============== [Получить описание пояснения правильного ответа] ===============
     const getQuizRightAnswerDescription = (givenQuestionID?: number): string | undefined => {
@@ -284,6 +282,14 @@ export const AppBookQuiz = () => {
             if(!gameState.gameStarted) updateGameState( (prevState) => ({...prevState, gameStarted: true}) );
             changeQuestion();
         }
+    }
+    // =============== [Показать Image Viewer] ===============
+    const showImage = () => {
+        updatePicState( prevState => ({...prevState, isOpen: true}) );
+    }
+    // =============== [Спрятать Image Viewer] ===============
+    const hideImage = () => {
+        updatePicState( prevState => ({...prevState, isOpen: false}) );
     }
 
 
@@ -403,7 +409,7 @@ export const AppBookQuiz = () => {
             // else {
             //     headingInfo = 'Неверно!';
             //     tapeOne = 'Вы не набрали никаких очков за этот вопрос. Ваш текущий набор очков составляет: ' + userProgressState.currentScoresAmount + ' очков.';
-            //     tapeTwo = 'Правильным ответом будет: ' + currentQuestion.questionAnswers[rightAnswerID - 1].answerContent;
+            //     tapeTwo = 'Правильным ответом будет: ' + currentQuestion.questionAnswers[rightAnswerID - 1].btnContent;
             // }
 
             // let updatedTapeInfo = {
@@ -477,8 +483,27 @@ export const AppBookQuiz = () => {
                         {/* <!-- ========== [ БЛОК С КАРТИНКОЙ ] ========== --> */}
                         { tapeState.img && !tapeState.tapeMini && !(gameState.gameFinished && gameState.gameResultMode) &&
                             <div className="tape_info"> { /* *ngIf="questionImgPath && !tapeMini" */ }
-                                <img className="image" alt="Картинка вопроса" src={tapeState.img}/>
-                                {/* [src]="questionImgPath" (click)="openModalIMG()" */}
+                                <button onClick={showImage} className="image_btn">
+                                    <img className="image" alt="Картинка вопроса" src={tapeState.img}/>
+                                </button>
+                                {picState.isOpen && (
+                                    <Lightbox
+                                        mainSrc={tapeState.img}
+                                        // nextSrc={images[(photoIndex + 1) % images.length]}
+                                        // prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+                                        onCloseRequest={hideImage}
+                                        // onMovePrevRequest={() =>
+                                        //     this.setState({
+                                        //         photoIndex: (photoIndex + images.length - 1) % images.length,
+                                        //     })
+                                        // }
+                                        // onMoveNextRequest={() =>
+                                        //     this.setState({
+                                        //         photoIndex: (photoIndex + 1) % images.length,
+                                        //     })
+                                        // }
+                                    />
+                                )}
                             </div>
                         }
                         {/* <!-- ========== [ БЛОК С СУТЬЮ ВОПРОСА ] ========== --> */}
@@ -513,27 +538,21 @@ export const AppBookQuiz = () => {
                     }
 
                     <div className="tape_action_block" id="tape_action_block">
-                        {/* { !gameState.gameStarted && */}
+                        { !gameState.gameStarted &&
                             <LinkButton to="/" style={gameState.gameFinished ? {margin: '0 auto'} : {}} className="action_button" >
                                 Вернуться
                             </LinkButton>
-                        {/* } */}
+                        }
                         
-                        {/* 
-                        { gameState.gameFinished &&
-                            <LinkButton to="/" style={gameState.gameFinished ? {margin: '0 auto'} : {}} className="action_button" >
+                        { gameState.gameStarted && !gameState.gameFinished &&
+                            <button className="action_button" onClick={finishQuiz}>
                                 Завершить
-                            </LinkButton>
-                        } */
+                            </button>
                         }
 
                         { !gameState.gameFinished &&
-                            <button className="action_button"
-                                onClick={continueButton}
-                                //*ngIf="!gameState.gameFinished"
-                                //(click)="continue()"
-                            >
-                                Продолжить{/* actionButton_next */}
+                            <button className="action_button" onClick={continueButton}>
+                                { userProgressState.userAnswered ? 'Далее' : 'Продолжить' }
                             </button>
                         }
                     </div>
@@ -552,16 +571,17 @@ export const AppBookQuiz = () => {
             </div>
 
 
-            {
+            <QuizPages btnsArray={answerBtnsState} actionFunc={makeAnswer} />
+            {/* {
                 PAGES_CLASSES.map( (page, pageIDX) => (
                     <div className={`page ${page.class}`} key={`book_page_answers_${pageIDX}`}>
                         {
                             answerBtnsState.map( (btn) => (
                                 (getNumOrder(btn.answerID) === page.order) ?
-                                    <div className="page_action_block" key={`book_page_answer_button_${btn.answerID}`}>
+                                    <div className="page_action_block" key={`book_page_answer_button_${btn.btnContent`}>
                                         <button className="action_button" onClick={ () => makeAnswer(btn.answerID) }>
                                             <span className="button_holder top right" />
-                                            {btn.answerContent}
+                                            {btn.btnContent}
                                         </button>
                                     </div>
                                 : null
@@ -569,7 +589,7 @@ export const AppBookQuiz = () => {
                         }
                     </div>
                 ) )
-            }
+            } */}
             {/* <!-- ========== [ ЛЕВАЯ СТРАНИЦА ] ========== --> */}
             {/* <div className="page left">
                 <div className="page_action_block">
@@ -602,68 +622,4 @@ export const AppBookQuiz = () => {
             </div> */}
         </div>
     );
-}
-
-
-// ---------- [СТРУКТУРЫ ДАННЫХ ВИКТОРИНЫ] ----------
-// ---- Кнопка
-type AnswerType = {
-    answerID: number,
-    answerContent: string,
-    visibility?: boolean
-}
-
-// ---- Набор кнопок
-interface IAnswerButtons extends Array<AnswerType> {}
-
-// ---- Содержание вопроса
-type QuizContentType = {
-    questionID: number,
-    questionMainPart: string,
-    questionContent?: string,
-    questionImgPath?: string,
-    questionVisibility: boolean,
-    // questionAnswers: [AnswerType, AnswerType, AnswerType, AnswerType],
-    questionAnswers: IAnswerButtons,
-    questionRightAnswerID: number,
-    questionRightAnswerDescription?: string,
-}
-
-// ---- Данные о всей викторине в целом
-interface IQuizData {
-    id: number,
-    quizType: number,
-    quizCreatorID: number,
-    quizName: string,
-    quizContent: Array<QuizContentType>,
-    quizVisible: boolean,
-    quizInvisibleReason?: string,
-    createdAt?: string,
-    updatedAt?: string
-}
-
-// ---- Ленточка
-type TapeDataType = {
-    heading: string,
-    img?: string,
-    tapeOne: string,
-    tapeTwo: string
-    socialShown?: boolean,
-    tapeMini?: boolean
-}
-
-// ---- Состояние игры
-type GameDataType = {
-    gameStarted: boolean,
-    gameFinished: boolean,
-    gameResultMode: boolean
-}
-
-type ProgressDataType = {
-    currentQuizID: number,
-    currentQuestionID: number,
-    currentScoresAmount: number,
-    userAnswered: boolean,
-    currentUserAnswerID: number,
-    currentUserAnswerCorrect: boolean
 }

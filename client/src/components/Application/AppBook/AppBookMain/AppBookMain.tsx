@@ -1,13 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeHeading } from '../../../../redux/actions/ui/uiActions';
-import LinkButton from '../../../../shared/components/LinkButton';
-
-type MainPageQuizzes = {
-    id: number | string,
-    quizName: string,
-    quizImgUrl?: string
-};
+import { changeHeading } from 'redux/actions/ui/uiActions';
+import { MainPageQuizzes } from '../QuizTypes';
+import LinkButton from 'shared/components/LinkButton';
 
 export const AppBookMain = () => {
     const mockData: [MainPageQuizzes, MainPageQuizzes] = [ // должно быть строго 2 элемента
@@ -36,9 +31,9 @@ export const AppBookMain = () => {
                 <h2 className="page_heading">Викторина</h2>
 
                 {/* <!-- ========== [ ACTION БЛОК ] ========== --> */}
-                {mockData.map(data => 
+                {mockData.map( (data, dataIDX) => 
                     <div className="page_action_block" key={`main_quiz_${data.id}`}>
-                        <div style={{width: 29 + '%'}} className={`famous ${data.quizImgUrl}`} />
+                        <div className={`famous ${data.quizImgUrl}`} />
 
                         <LinkButton to={`/quiz/${data.id}`} className="action_button">
                             <span className="button_holder top right" />
@@ -53,7 +48,7 @@ export const AppBookMain = () => {
                     </div>
                 )}
 
-                <button className="action_button_back" />
+                <LinkButton to="/quizzes" className="action_button_left" title="Посмотреть остальные викторины"></LinkButton>
             </div>
             {/* <!-- ========== [ ПРАВАЯ СТРАНИЦА ] ========== --> */}
             <div className="page right">

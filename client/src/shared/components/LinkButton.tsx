@@ -9,6 +9,7 @@ interface Props extends RouteComponentProps {
     onClick?: (e: React.SyntheticEvent) => {},
     style?: React.CSSProperties | undefined,
     className?: string,
+    title?: string,
     rest?: []
 };
 
@@ -22,6 +23,7 @@ const LinkButton = (props: Props) => {
         onClick,
         style,
         className,
+        title,
         ...rest
     } = props;
 
@@ -29,6 +31,7 @@ const LinkButton = (props: Props) => {
         <button
             style={style}
             className={className}
+            title={title}
             {...rest}
             onClick={(event) => {
                 onClick && onClick(event)

@@ -1,4 +1,28 @@
 @import '../../../../assets/styles/common/variables.less';
+// ================ [ Переопределение стилей Image Viewer'a ] ================
+.ril__toolbar {
+  top: unset;
+  bottom: 20px;
+}
+.ril__caption, .ril__toolbar {
+  justify-content: center;
+  background: transparent;
+}
+.ril__toolbarRightSide {
+  padding-right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  border-radius: 20px;
+  padding: 0 10px;
+
+  .ril__toolbarItem {
+    margin: 0px 5px;
+
+    .ril__builtinButtonDisabled {
+      opacity: 0.2;
+    }
+  }
+}
 // ========================= [ Tape Styles ] =========================
 .content .decors {
     position: absolute;
@@ -175,6 +199,9 @@
       height: 15%; // [Added in FLEX methodology]
   
       .action_button {
+        min-height: inherit !important; // CORRECTED FOR AppBookQuiz component only
+        max-height: inherit !important; // CORRECTED FOR AppBookQuiz component only
+
         width: 170px;
         height: 50px;
         padding: 10px 5px;
@@ -220,6 +247,8 @@
       max-width: 100%;
       min-height: 30%; // [ADDED FOR THE SAME HEIGHT]
       margin: 0 auto;
+
+      padding: 30px !important;// ADDED FOR AppBookQuiz component only
   
       // Настройки держалок для кнопок
       .button_holder {
@@ -257,13 +286,20 @@
   {
     overflow: auto;
   
+    .image_btn {
+      border: none;
+      background: transparent;
+      border-radius: 5px;
+      margin: 10px auto;
+      box-shadow: 0px 4px 5px #6B4325;
+    }
     .image
     {
       width: 100px !important;
       max-width: 100px !important;
-      margin: 0 auto;
-      border-radius: 5px;
-      box-shadow: 0px 4px 5px #6B4325;
+      margin: 5px auto; // 5px для того чтобы тенька поместилась в кнопку
+      // border-radius: 5px;
+      // box-shadow: 0px 4px 5px #6B4325; // по итогу решено было теньку у картинки убрать, а добавить ее кнопке, ну и отсутпы оставить
       cursor: pointer;
     }
   }
@@ -279,6 +315,8 @@
     text-align: center;
     margin: 0 auto !important;
     // box-shadow: 4px 0px 0px #6B4325;
+
+    min-height: inherit !important; // CORRECTED FOR AppBookQuiz component only
   
     img {
       width: 16px;

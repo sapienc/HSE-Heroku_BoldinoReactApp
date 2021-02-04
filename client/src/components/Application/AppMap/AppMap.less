@@ -1,0 +1,318 @@
+.map_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+#map {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+// ========================= [ MAP ] =========================
+// Контейнер
+.map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  
+  .backBtnZone 
+  {
+    // display: block;
+    // width: 100%;
+    // height: 50px;
+    // margin-top: -20px;
+    // Вместо того, чтобы делать целый блок (считай там где кнопка занимается вся ширина и не кликабельная она)
+    // И вдобавок ко всему, у нас fixed position, то имеет смысл просто отступить слева столько, сколько нужно, рассчитав значение:
+    left: 50%;
+    transform: translate(-50%); // left: calc(50% - 70px); - не сработало почему-то, но можно было и отрицательными margin'ами еще
+    
+    position: fixed;
+    bottom: 20px;
+    z-index: 1000;
+    text-align: center;
+    min-height: 20px;
+    // outline: 1px solid red;
+  }
+}
+.map_back_btn, .popupMoreBtn
+{
+  color: white;
+  background: #C4312C;
+  padding: 8px 25px;
+  border: 0;
+  border-bottom: 3px solid #6B4325;
+  border-radius: 20px;
+  font-size: 1.6em;
+  transition: all 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    background: #DE342E
+  }
+
+  &:active, &:focus {
+    margin-top: 2px;
+    border-bottom: 1px solid #6B4325;
+  }
+}
+
+.testModalWindowZone
+{
+  position: absolute !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  top: 0;
+  text-align: center;
+
+  .modalIMGBlock
+  {
+    display: block;
+    margin: 0 auto;
+    
+    .modalIMG {
+      border-radius: 4px;
+    }
+  }
+}
+
+.modalWindowZone, .testModalWindowZone  {
+  // display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 80px 380px 120px 380px;
+  box-sizing: border-box;
+  background: rgba(21,21,21, 0.5);
+  z-index: 1000;
+  font-size: 18px;
+  color: white;
+  
+  .modalWindowWrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+    .closeBtnBlock {
+      position: absolute;
+      top: -20px;
+      right: -45px;
+      
+      .closeBtn {
+        display: block;
+        text-decoration: none;
+        height: 13px;
+
+        &:hover {
+          cursor: pointer;
+          background: #DE342E;
+        }
+      }
+    }
+  }
+
+  .modalWindow {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    // margin: 8px 6px;
+    background: #DF812F;
+    overflow: auto;
+    border: 8px solid white;
+    box-shadow: -2px 2px 2px rgba(0,0,0,0.4);
+
+    .headingBlock {
+      .heading {
+        margin: 0;
+        margin-bottom: 5px;
+        text-align: center;
+      }
+    }
+
+    .imgBlock {
+      max-width: 400px;
+      max-height: 400px;
+      margin-right: 15px;
+      float: left;
+
+      .img {
+        width: 325px;
+        height: 325px;
+        border: 4px solid white;
+        border-radius: 10px;
+        box-sizing: border-box;
+        overflow: hidden;
+        background: white;
+      }
+    }
+    
+    .descriptionBlock {
+      
+      .description {
+        margin: 0;
+        text-align: justify;
+      }
+    }
+
+    &::after {
+      clear: both;
+    }
+  }
+}
+
+.popupWrapper {
+  width: initial; //300px
+  color: white;
+  padding: 6px;
+  // max-height: 200px;
+  // margin: 0;
+  // padding: 0;
+
+  .infoBlock {
+    display: flex;
+  }
+
+  .btnBLock {
+    font-size: 1.2em;
+    transition: all 0.2s;
+    text-align: center;
+    width: 100%;
+    margin-top: 4px;
+    
+    .popupMoreBtn {
+      width: inherit;
+      padding: 8px 25px;
+      cursor: pointer;
+      margin-top: 4px;
+      font-size: 1.2em;
+
+      &:active, &:focus {
+        margin-top: 6px;
+        // margin-bottom: 2px;
+      }
+    }
+  }
+
+  .popBlock {
+    width: 100%;
+    height: inherit;
+    max-height: 125px;
+    
+    &:first-child { width: auto; }
+    &:last-child { padding: 0 20px 0 10px; }
+
+    .info {
+      margin: 0;
+      padding:  0;;
+    }
+
+    .heading_text {
+      text-align: center !important;
+      margin: 0 0 5px 0;
+    }
+
+    .descr_text {
+      text-align: justify;
+      margin: 0;
+    }
+  }
+
+  .img {
+    width: 125px;
+    height: 125px; // возможно удалить
+    // height: 100px;
+    border: 4px solid white;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+  }
+}
+
+// =============== [ Переопределение стандартных стилей ] ===============
+.leaflet-container {
+    background: #bcd89e !important;
+  }
+  //leaflet-popup-content-wrapper
+  .leaflet-popup.custom {
+    padding-top: 20px; // для того чтобы дать [#пространства_кнопке] закрытия попапа сверху
+  }
+
+  .custom .leaflet-popup,
+  .custom_closed .leaflet-popup {
+    //align-items: ;
+    // background: #DF812F;
+  }
+
+  .custom_closed .popBlock:last-child {
+    overflow: auto;
+  }
+  
+  .custom .leaflet-popup-content-wrapper,
+  .custom_closed .leaflet-popup-content-wrapper {
+    border-radius: 6px;
+    margin: 10px 20px 0 20px;
+  }
+  
+  .custom .leaflet-popup-content,
+  .custom_closed .leaflet-popup-content {
+    width: 350px !important;
+    border-radius: 5px !important;
+    margin: 8px 6px !important;
+    background: #DF812F !important;
+    overflow: hidden !important;
+  }
+  .custom_closed .leaflet-popup-content {
+    background: #5E554E !important;
+  }
+  
+  .custom .leaflet-popup-close-button,
+  .custom_closed .leaflet-popup-close-button {
+    padding: 12px 10px !important;
+  }
+  .custom .leaflet-popup-close-button,
+  .custom_closed .leaflet-popup-close-button,
+  .modalWindowZone .closeBtn {
+    background: #C4312C !important;
+    font: bold 22px/12px Tahoma, Verdana, sans-serif !important;
+    padding: 12px 10px 26px 10px; // padding: 12px 10px !important;
+    border-radius: 50px !important;
+    color: white !important;
+    top: 10px !important; // Т.к дали [#пространства_кнопке] сверху, то отступ делаем на 10 пикселей сверху
+    // top: -10px !important; // Из-за margin'a у leaflet-popup-content-wrapper
+    //top: -15px !important;
+    right: 5px !important; // Из-за margin'a у leaflet-popup-content-wrapper
+    //right: -15px !important; //-20px
+    border: 5px solid white !important;
+    // box-shadow: -2px 2px 2px rgba(0,0,0,0.4);
+  
+    &:hover { 
+      // box-shadow: 0px 0px 5px black;
+      background: #DE342E;
+    }
+  }
+
+  // Выделение точек
+  .custom.leaflet-interactive {
+    stroke: white;
+
+    &:hover {
+      // stroke: black;
+      fill: white;
+      fill-opacity: 0.3;
+    }
+    &:active, &:focus {
+      fill: red;
+      fill-opacity: 0.3;
+    }
+  }
+  
+  // .custom .leaflet-popup-tip,
+  // .custom .leaflet-popup-content-wrapper {
+  //     background: #e93434;
+  //     color: #ffffff;
+  // }

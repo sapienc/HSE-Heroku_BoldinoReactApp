@@ -19,6 +19,7 @@ export const Application: React.FC = () => {
         if(!additionalConditionByQuizURL) // if addCondStrByUrl wasn't found, we can dispatch as visible
         {
             dispatch(changeHeading(true));
+            
         }
         // console.log('ApplicationEffect');
     }, []);

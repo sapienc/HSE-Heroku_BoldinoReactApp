@@ -1,5 +1,10 @@
 * { outline: none !important; }
 
+.tape ~ .page .action_button_right,
+.tape ~ .page .action_button_left, {
+  display: none;
+}
+
 .wrapper
 {
     position: relative;
@@ -106,6 +111,11 @@
         font-family: Georgia;
 
         outline: 1px solid pink;
+
+        // &:nth-last-child(1) {
+        //   height: 100%;
+        //   justify-content: center;
+        // }
       }
       
       // ========================= [ Book Page Action Map Button ] =========================
@@ -121,6 +131,11 @@
         transition: 0.2s all;
         cursor: pointer;
         outline: none;
+
+        // &:nth-last-child(1) {
+        //   height: inherit;
+        //   justify-content: unset;
+        // }
         
         // box-shadow: 0px 4px 0px #6B4325, -4px 4px 0px #6B4325;
         // border: 4px solid #DEAB6B;
@@ -173,28 +188,39 @@
       }
 
       // ========================= [ Book Page Action Back Button ] =========================
-      .action_button_back {
-        position: absolute;
-        left: 2%;
-        bottom: 2%;
-        width: 78px;
-        height: 40px;
-        
-        cursor: pointer;
-        border: none;
-        background: url(/src/assets/images/buttons/button_back.png) no-repeat center center;
-        background-size: contain;
-        transition: 0.2s all;
-      
-        &:hover {
-          background: url(/src/assets/images/buttons/button_back_hover.png) no-repeat center center;
+      .action_button_ {
+        &left, &right {
+          position: absolute;
+          bottom: 2%;
+          width: 78px;
+          height: 40px;
+          
+          cursor: pointer;
+          border: none;
+          background: url(/src/assets/images/buttons/button_back.png) no-repeat center center;
           background-size: contain;
+          transition: 0.2s all;
+        
+          &:hover {
+            background: url(/src/assets/images/buttons/button_back_hover.png) no-repeat center center;
+            background-size: contain;
+          }
+        }
+        &left { left: 2%; }
+        &right {
+          right: 2%;
+          transform: scale(-1, 1); // отразим по вертикали
         }
 
-        &:active {
+        &left:active {
           // transform: rotate(6deg);
           transition: 0.2s all;
           left: -2%;
+        }
+        &right:active {
+          transform: scale(-1, 1); // отразим по вертикали
+          transition: 0.2s all;
+          right: -2%;
         }
 
         // Убираем outline & border
@@ -228,11 +254,14 @@
     .action_button {
       position: relative;
       margin-left: 5%; //ТАК_ЛУЧШЕ
-      padding: 15px 40px;//ПОДГОН
+      padding: 15px 20px;//ПОДГОН
+      // padding: 15px 40px;//ПОДГОН OLD
       // padding: 20px 40px;
       max-width: 70%; //ПОДГОН
       // max-width: 60%;
       // height: 20%;
+      min-height: 75px;
+      max-height: 90px;
       
       font-family: Georgia;
       font-size: 14px; //ПОДГОН
@@ -303,7 +332,9 @@
   }
   .famous {
     // width: 140px;
-    width: 25%;
+    // width: 25%;
+    // width: 130px;
+    width: 40%;
     max-width: 160px;
     height: 140px;
     max-height: 160px;

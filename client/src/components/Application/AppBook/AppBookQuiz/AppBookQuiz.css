@@ -1,3 +1,26 @@
+.ril__toolbar {
+  top: unset;
+  bottom: 20px;
+}
+.ril__caption,
+.ril__toolbar {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: transparent;
+}
+.ril__toolbarRightSide {
+  padding-right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 0 10px;
+}
+.ril__toolbarRightSide .ril__toolbarItem {
+  margin: 0px 5px;
+}
+.ril__toolbarRightSide .ril__toolbarItem .ril__builtinButtonDisabled {
+  opacity: 0.2;
+}
 .content .decors {
   position: absolute;
   width: 100%;
@@ -179,6 +202,8 @@
   height: 15%;
 }
 .tape .tape_action_block .action_button {
+  min-height: inherit !important;
+  max-height: inherit !important;
   width: 170px;
   height: 50px;
   padding: 10px 5px;
@@ -230,6 +255,7 @@
   max-width: 100%;
   min-height: 30%;
   margin: 0 auto;
+  padding: 30px !important;
 }
 .tape ~ .page .action_button .button_holder {
   background: url('/src/assets/images/decor/btn_holder_diagonalDown.png') no-repeat center center;
@@ -262,13 +288,18 @@
 .tape_info_block {
   overflow: auto;
 }
+.tape_info_block .image_btn {
+  border: none;
+  background: transparent;
+  border-radius: 5px;
+  margin: 10px auto;
+  -webkit-box-shadow: 0px 4px 5px #6B4325;
+          box-shadow: 0px 4px 5px #6B4325;
+}
 .tape_info_block .image {
   width: 100px !important;
   max-width: 100px !important;
-  margin: 0 auto;
-  border-radius: 5px;
-  -webkit-box-shadow: 0px 4px 5px #6B4325;
-          box-shadow: 0px 4px 5px #6B4325;
+  margin: 5px auto;
   cursor: pointer;
 }
 .action_button.expand {
@@ -279,6 +310,7 @@
   padding: 10px 10px !important;
   text-align: center;
   margin: 0 auto !important;
+  min-height: inherit !important;
 }
 .action_button.expand img {
   width: 16px;

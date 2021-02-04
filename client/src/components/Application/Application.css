@@ -1,6 +1,10 @@
 * {
   outline: none !important;
 }
+.tape ~ .page .action_button_right,
+.tape ~ .page .action_button_left {
+  display: none;
+}
 .wrapper {
   position: relative;
   width: 100%;
@@ -151,9 +155,9 @@
   background: url(/src/assets/images/buttons/map_active.png) center center no-repeat;
   background-size: contain;
 }
-.Book .content .page .action_button_back {
+.Book .content .page .action_button_left,
+.Book .content .page .action_button_right {
   position: absolute;
-  left: 2%;
   bottom: 2%;
   width: 78px;
   height: 40px;
@@ -164,18 +168,34 @@
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
 }
-.Book .content .page .action_button_back:hover {
+.Book .content .page .action_button_left:hover,
+.Book .content .page .action_button_right:hover {
   background: url(/src/assets/images/buttons/button_back_hover.png) no-repeat center center;
   background-size: contain;
 }
-.Book .content .page .action_button_back:active {
+.Book .content .page .action_button_left {
+  left: 2%;
+}
+.Book .content .page .action_button_right {
+  right: 2%;
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+.Book .content .page .action_button_left:active {
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
   left: -2%;
 }
-.Book .content .page .action_button_back::-moz-focus-inner,
-.Book .content .page .action_button_back:active,
-.Book .content .page .action_button_back:focus {
+.Book .content .page .action_button_right:active {
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  right: -2%;
+}
+.Book .content .page .action_button_::-moz-focus-inner,
+.Book .content .page .action_button_:active,
+.Book .content .page .action_button_:focus {
   outline: none;
   border: 0;
 }
@@ -207,8 +227,10 @@
 .Book .content .action_button {
   position: relative;
   margin-left: 5%;
-  padding: 15px 40px;
+  padding: 15px 20px;
   max-width: 70%;
+  min-height: 75px;
+  max-height: 90px;
   font-family: Georgia;
   font-size: 14px;
   word-wrap: break-word;
@@ -272,7 +294,7 @@
   left: -20px;
 }
 .Book .famous {
-  width: 25%;
+  width: 40%;
   max-width: 160px;
   height: 140px;
   max-height: 160px;
