@@ -44,7 +44,7 @@ export const QuizPages = (props: QuizPagesProps) => {
         {
             PAGES_CLASSES.map( (page: PageType, pageIDX: number) => (
                 <div
-                    className={`page ${page.class}` + (props.pageFlex ? 'flexible' : '')}
+                    className={`page ${page.class}` + (props.pageFlex ? ' flexible' : '')}
                     style={ (props.pageFlex ? {
                         display: 'flex',
                         flexDirection: 'column',

@@ -77,101 +77,103 @@ export const AppBookQuiz = () => {
     useEffect( () => {
         dispatch(changeHeading(false));
 
-        const mockData: IQuizData = 
-        {
-            id: 3,
-            quizType: 1,
-            quizCreatorID: 2,
-            quizName: 'Вопросы по еще другим произведениям',
-            quizContent: [
-                {
-                    questionID: 1,
-                    questionMainPart: "Суть 1",
-                    questionContent: "Описание 1",
-                    questionImgPath: "/logo512.png",
-                    questionVisibility: true,
-                    questionAnswers: [
-                        {
-                            btnID: 1,
-                            btnContent: "Содержимое номер один"
-                        },
-                        {
-                            btnID: 2,
-                            btnContent: "Содержимое номер два"
-                        },
-                        {
-                            btnID: 3,
-                            btnContent: "Содержимое номер три"
-                        },
-                        {
-                            btnID: 4,
-                            btnContent: "Содержимое номер четыре"
-                        }
-                    ],
-                    questionRightAnswerID: 3,
-                    questionRightAnswerDescription: "Description 1"
-                },
-                {
-                    questionID: 2,
-                    questionMainPart: "Суть номер два 2",
-                    questionContent: "Описание номер два 2",
-                    questionImgPath: "",
-                    questionVisibility: true,
-                    questionAnswers: [
-                        {
-                            btnID: 1,
-                            btnContent: "Ответ номер один"
-                        },
-                        {
-                            btnID: 2,
-                            btnContent: "Ответ номер два"
-                        },
-                        {
-                            btnID: 3,
-                            btnContent: "Ответ номер три"
-                        },
-                        {
-                            btnID: 4,
-                            btnContent: "Ответ номер четыре"
-                        }
-                    ],
-                    questionRightAnswerID: 1,
-                    questionRightAnswerDescription: "Тут должно быть пояснение 2"
-                },
-                {
-                    questionID: 3,
-                    questionMainPart: "Суть номер три 3",
-                    questionContent: "Описание номер три 3",
-                    questionImgPath: "",
-                    questionVisibility: true,
-                    questionAnswers: [
-                        {
-                            btnID: 1,
-                            btnContent: "Ответ номер один 3"
-                        },
-                        {
-                            btnID: 2,
-                            btnContent: "Ответ номер два 3"
-                        },
-                        {
-                            btnID: 3,
-                            btnContent: "Ответ номер три 3"
-                        },
-                        {
-                            btnID: 4,
-                            btnContent: "Ответ номер четыре 3"
-                        }
-                    ],
-                    questionRightAnswerID: 2,
-                    questionRightAnswerDescription: ""
-                }
-            ],
-            quizVisible: true,
-            quizInvisibleReason: '',
-            createdAt: '2021-01-13 02:27:49.962+03',
-            updatedAt: '2021-01-13 02:27:49.962+03'
-        };
+        const mockData: IQuizData = //[
+            {
+                id: 1,
+                quizType: 1,
+                quizCreatorID: 1,
+                quizName: 'Вопросы по произведением Пушкина',
+                quizContent: [
+                    {
+                        questionID: 1,
+                        questionMainPart: "Зная о цели первой поездки Пушкина в Болдино (1830), укажите адресата этого стихотворения",
+                        questionContent: "Перед отъездом в Болдино, Пушкин оставил в альбоме Бартенева известное стихотворение “Мадонна”, оканчивающееся строками\n\n<i>“<...> Творец / Тебя мне ниспослал, тебя, моя Мадонна, / Чистейшей прелести чистейший образец”</i>",
+                        questionImgPath: "",
+                        questionVisibility: true,
+                        questionAnswers: [
+                            {
+                                btnID: 1,
+                                btnContent: "Анна Керн"
+                            },
+                            {
+                                btnID: 2,
+                                btnContent: "Наталья Гончарова"
+                            },
+                            {
+                                btnID: 3,
+                                btnContent: "Екатерина Сушкова"
+                            },
+                            {
+                                btnID: 4,
+                                btnContent: "Екатерина Ушакова"
+                            }
+                        ],
+                        questionRightAnswerID: 2,
+                        questionRightAnswerDescription: ""
+                    },
+                    {
+                        questionID: 2,
+                        questionMainPart: "Герои какого произведения Пушкина, предположительно, изображены на этом рисунке?",
+                        questionContent: "Перед Вами титульный лист, нарисованный А.С. Пушкин для цикла “маленьких трагедий”",
+                        questionImgPath: "/testPic_1.jpg",
+                        questionVisibility: true,
+                        questionAnswers: [
+                            {
+                                btnID: 1,
+                                btnContent: "Сцены из рыцарских времен"
+                            },
+                            {
+                                btnID: 2,
+                                btnContent: "Пир во время чумы"
+                            },
+                            {
+                                btnID: 3,
+                                btnContent: "Каменный гость"
+                            },
+                            {
+                                btnID: 4,
+                                btnContent: "Скупой рыцарь"
+                            }
+                        ],
+                        questionRightAnswerID: 4,
+                        questionRightAnswerDescription: "Здесь будет пояснение правильности вопроса."
+                    },
+                    {
+                        questionID: 3,
+                        questionMainPart: "О каком тексте идет речь?",
+                        questionContent: "По убеждению М.В. Елиферовой, исследовавшей восприятие пьес Шекспира в творчестве Пушкина, один из текстов болдинского периода представляет собой как бы “пересказ” трагедии Шекспира “Ромео и Джульетта”",
+                        questionImgPath: "",
+                        questionVisibility: true,
+                        questionAnswers: [
+                            {
+                                btnID: 1,
+                                btnContent: "Пир во время чумы"
+                            },
+                            {
+                                btnID: 2,
+                                btnContent: "Гробовщик"
+                            },
+                            {
+                                btnID: 3,
+                                btnContent: "Барышня-крестьянка"
+                            },
+                            {
+                                btnID: 4,
+                                btnContent: "Граф НулСцены из рыцарских временин"
+                            }
+                        ],
+                        questionRightAnswerID: 3,
+                        questionRightAnswerDescription: ""
+                    }
+                ],
+                quizVisible: true,
+                quizInvisibleReason: '',
+                createdAt: '2021-01-13 02:27:49.962+03',
+                updatedAt: '2021-01-13 02:27:49.962+03'
+            }
+        //];
 
+        let url_data = window.location.pathname.split('/');
         setQuizInfo(mockData);
     }, []);
     
