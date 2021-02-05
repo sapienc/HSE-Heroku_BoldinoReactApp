@@ -683,11 +683,13 @@ export const AppMap = () => {
                     scrollWheelZoom={!modalWindow.visibility}
                     // ref={(map) => (setMapRef(map)) }
                 >
-                    <div className="backBtnZone">
-                        <LinkButton to="/" className="map_back_btn">
-                            Вернуться
-                            {/* className="btn_link" */}
-                        </LinkButton>
+                    <div className="backBtnZoneWrapper">
+                        <div className="backBtnZone">
+                            <LinkButton to="/" className="map_back_btn">
+                                Вернуться
+                                {/* className="btn_link" */}
+                            </LinkButton>
+                        </div>
                     </div>
 
                     <MapModalWindow
